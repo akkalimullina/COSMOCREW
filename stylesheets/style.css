@@ -1,0 +1,8 @@
+@import "reset.css";/* сбрoc настроек браузера */
+@import "content.css"; /* контент / содержимое  */
+@import "adaptive.css";/* адаптивность */
+@import "store.css";
+@import "fonts.css";
+@import "cuarter.css";
+@import "cuarter-parts.css";
+@import "posrers.css";

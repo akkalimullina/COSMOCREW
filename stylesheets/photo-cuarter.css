@@ -1,0 +1,59 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100vh;
+    background: #FF2F05;
+}
+
+
+.logo {
+    width: 14%;
+    margin-top: 1vw;
+    margin-left: -1vw;
+  }
+  .menu {
+    display: flex;
+    position: absolute;
+    flex-direction: row;
+    gap: 9vw;
+    margin-left: 30vw;
+    margin-top: -6.5vw;
+  }
+  .h-menu {
+    font-family: "Inter";
+    font-size: 1.4vw;
+    color: white;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+  }
+  
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    left: 22vw;
+    top: 3vw;
+}
+
+.card {
+    position: absolute;
+    width: 29.7vw;
+    height: 23.7vw;
+    transition: transform 0.3s ease;
+    transform-origin: bottom left;
+    box-sizing: border-box;
+}
+
+.card:hover {
+    transform: translateY(-13vw);
+    z-index: 1000; /* При наведении поднимаем над всеми */
+}
+.card img {
+    width: 100%;        
+    height: 100%;      
+    object-fit: cover;  
+    object-position: center; 
+}

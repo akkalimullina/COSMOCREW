@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr"> <!-- lefttablerow - выравнимает текст слева изначально -->
+  <head>
+    <meta charset="utf-8">                            <!-- кодирования, работающая по стандарту Unicode -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:type" content="article">       <!-- тип добавляемого материала, например, «article» – статья, «movie» — кино и так далее; -->
+    <meta property="og:url" content="{ссылка}">       <!-- ссылка на саму веб-страницу, которая добавляется в социальную сеть -->
+    <meta property="og:title" content="название">     <!-- название материала; -->
+    <meta property="og:description" content="текст">  <!-- описание материала, заполнять не обязательно; -->
+    <meta property="og:image" content="{картинка}">   <!-- ссылка на картинку, которая должна сопровождать материал; -->
+    <title>...</title> <!-- Write here your project name -->
+      <link rel="icon" href="./images/favicon.png"> <!-- отображаетмя в шапке - важно не забывать -->
+      <link href="./stylesheets/style.css" rel="stylesheet" type="text/css"/>
+      <script src="./javascripts/cuarter.js" charset="utf-8"></script>
+  </head>
+
+<body>
+
+<nav>
+  <img class="logo" src="./images/logo.gif">
+  
+  <div class="menu">
+  <p class="h-menu"> МЕРЧ</p>
+  <p class="h-menu"> ШТАБ-КВАРТИРА</p>
+  <p class="h-menu"> ПОСТЕРЫ</p>
+  </div>
+  </nav>
+
+  
+  <img class="cuarter-map" src="images/cuarter-map.svg">
+
+  <div class="common-div">
+  <div class="cuarter-grid" id="grid1">
+    <img class="cuarter-rooms" id="garage" src="./images/cuarter-image/garage.svg" 
+         onmouseover="this.src='./images/cuarter-image/garage-hover.svg'" 
+         onmouseout="this.src='./images/cuarter-image/garage.svg'">
+        </div>
+
+  <div class="cuarter-grid" id="grid2">
+    <img class="cuarter-rooms" id="catien" src="./images/cuarter-image/catien.svg"
+         onmouseover="this.src='./images/cuarter-image/catien-hover.svg'"
+         onmouseout="this.src='./images/cuarter-image/catien.svg'">
+  </div>
+  </div>
+   
+  <div class="common-div">
+  <div class="cuarter-grid" id="grid3">
+    <img class="cuarter-rooms" id="punkt" src="./images/cuarter-image/punkt.svg"
+         onmouseover="this.src='./images/cuarter-image/punkt-hover.svg'"
+         onmouseout="this.src='./images/cuarter-image/punkt.svg'">
+        </div>
+  <div class="cuarter-grid" id="grid4">
+    <img class="cuarter-rooms" id="autopark" src="./images/cuarter-image/autopark.svg"
+         onmouseover="this.src='./images/cuarter-image/autopark-hover.svg'"
+         onmouseout="this.src='./images/cuarter-image/autopark.svg'">
+  </div>
+</div>
+
+  <div class="cuarter-grid" id="grid5">
+    <img class="cuarter-rooms" id="PCS" src="./images/cuarter-image/PCS.svg">
+  </div>
+
+
+
+  </body>
+  
+</html>
