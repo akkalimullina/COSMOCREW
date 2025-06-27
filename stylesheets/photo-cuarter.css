@@ -28,6 +28,9 @@ body {
     padding: 0;
     white-space: nowrap;
   }
+  .menu a {
+    text-decoration: none;
+  }
   
 
 .container {

@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
     ];
   
     // Создаем 25 страниц, используя ваши изображения
-    const bookPages = Array.from({ length: 25 }, (_, i) => ({
+    const bookPages = Array.from({ length: 24 }, (_, i) => ({
       id: i + 1,
       imageUrl: customImages[i] || `images/book pages/default.jpg` // fallback, если нет изображения
     }));
