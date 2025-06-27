@@ -4,7 +4,7 @@ function initCardGallery(imageUrls) {
     
     const cardCount = imageUrls.length;
     const cardWidthVW = 15;
-    const aspectRatio = 2/3;
+    const aspectRatio = 100/3;
     const overlapFactor = 0.3;
 
     function vwToPx(vw) {
