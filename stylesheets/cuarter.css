@@ -1,28 +1,58 @@
-body{
-    padding: 0%;
+.body-cuarter {
+    padding: 0;
     margin: 0;
-    position: relative;
-}
-.cuarter-map{
-    margin-top: 3vw;
-    margin-left: 25vw;
-    margin-bottom: 5vw;
+    background-color: black;
+    overflow-y: auto;
 }
 
-.cuarter-grid {
-    width: 50vw;
+/* Скрываем десктопную версию на мобильных */
+.desktop-version {
+    display: none;
 }
 
-.grid1{
-    margin-top: 7vw;
+/* Мобильная версия */
+.mobile-version {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+  }
+  .cuarter-rooms {
+    display: block;
+    margin: 0;
+    padding: 0;
+    border: none;
+    width: 100vw;
+  }
+.cuarter-map {
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 75vw;
+    margin: 0 auto;
+    object-fit: contain;
+    margin: 0 auto 10vw; 
 }
+.mobile-vertical-layout {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+  }
+
 .cuarter-rooms {
-    width: 100%;
+    width: 100vw;
+    height: 62vw;
+    display: block;
+    margin: 0;
+    padding: 0;
+    border: none;
 }
-.common-div {
-display: flex;
-    width: 100%;
-    position: relative;
 
-
+/* Десктопная версия (только для больших экранов) */
+@media (min-width: 769px) {
+    .desktop-version {
+        display: block;
+    }
+    .mobile-version {
+        display: none;
+    }
 }
