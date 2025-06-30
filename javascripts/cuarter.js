@@ -72,5 +72,8 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
   });
-});
 
+  document.querySelector('.burger-icon').addEventListener('click', function() {
+    document.querySelector('.mobile-menu').classList.toggle('active');
+  });
+});

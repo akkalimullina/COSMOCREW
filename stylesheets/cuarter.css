@@ -15,14 +15,14 @@
     margin: 0;
     padding: 0;
     width: 100vw;
-  }
-  .cuarter-rooms {
+}
+.cuarter-rooms {
     display: block;
     margin: 0;
     padding: 0;
     border: none;
     width: 100vw;
-  }
+}
 .cuarter-map {
     display: block;
     margin: 0;
@@ -36,7 +36,7 @@
     margin: 0;
     padding: 0;
     width: 100vw;
-  }
+}
 
 .cuarter-rooms {
     width: 100vw;
@@ -54,5 +54,42 @@
     }
     .mobile-version {
         display: none;
+    }
+    
+    .rooms-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .room-pair {
+        display: flex;
+        width: 100%;
+    }
+    
+    .room-full {
+        width: 100%;
+    }
+    
+    .cuarter-room {
+        margin: 0;
+        padding: 0;
+        display: block;
+    }
+    
+    .half-width {
+        width: 50vw;
+        height: auto;
+    }
+    
+    .full-width {
+        width: 100vw;
+        height: auto;
+    }
+    
+    .cuarter-map {
+        width: 50vw;
+        margin-bottom: 2vw;
     }
 }
