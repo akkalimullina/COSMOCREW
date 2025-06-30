@@ -1,3 +1,4 @@
+/* Десктопная версия (остается без изменений) */
 body {
     margin: 0;
     padding: 0;
@@ -12,7 +13,7 @@ body {
     height: 13.26vw;
     display: flex;
     position: relative;
-    background-color: #000000; /* временно для визуализации */
+    background-color: #000000;
 }
 
 .description {
@@ -31,34 +32,11 @@ body {
     font-size: 1.5vw;
 }
 
-.white {
-
-    background-image:  url("/images/wh");
-}
-.description{
-    left: 2vw;
-}
-
-.blue {
-    background-color: blue;
-    color: white;
-}
-
-.red {
-    background-color: red;
-    color: white;
-}
-
 .main-image {
     flex-grow: 1;
     background-size: cover;
     background-position: center;
     margin-top: -0.1vw;
-}
-
-.p1{
-    font-family: "VPCH", sans-serif;
-    color: white;
 }
 
 .tur {
@@ -68,7 +46,6 @@ body {
     width: 14.23vw;
     height: auto;
     cursor: pointer;
-    background-image: url("/images/tur.svg;");
     bottom: 2vw;
     left: 2vw;
 }
@@ -81,4 +58,67 @@ body {
     height: auto;
     bottom: 2vw;
     right: 2vw;
+}
+
+/* Мобильная версия */
+@media only screen and (max-width: 768px) {
+    body {
+        overflow-y: auto;
+        display: block;
+        overflow-y: hidden;
+        overflow-x: hidden;
+    }
+    
+    .menu-main {
+        height: auto;
+        display: block;
+        background-color: #000000;
+    }
+    
+    /* Горизонтальный ряд для white, blue, red */
+    .white, .blue, .red {
+        width: 33.33%;
+        height: 40vw;
+        display: inline-block;
+        float: left;
+        box-sizing: border-box;
+    }
+    
+    /* Description во всю ширину */
+    .description {
+        width: 100%;
+        padding: 5vw;
+        box-sizing: border-box;
+        display: block;
+        clear: both;
+    }
+    
+    .main-image {
+        position: absolute;
+        width: 350%;
+        margin-top: -6vw;
+        z-index: -100;
+        display: block;
+    }
+    
+    /* Контейнер для нижних элементов */
+    .mobile-bottom {
+        position: fixed;
+        bottom: 2vw;
+        right: 2vw;
+        display: flex;
+        flex-direction: row-reverse;
+    }
+    
+    .tur {
+        position: absolute;
+        width: 52vw;
+        top: -518vw;
+        left: -328vw;
+    }
+    
+    .detector {
+        position: static;
+        width: 15vw;
+    }
 }
