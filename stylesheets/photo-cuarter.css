@@ -8,29 +8,33 @@ body {
 
 
 .logo {
-    width: 14%;
-    margin-top: 1vw;
-    margin-left: -1vw;
-  }
-  .menu {
-    display: flex;
-    position: absolute;
-    flex-direction: row;
-    gap: 9vw;
-    margin-left: 30vw;
-    margin-top: -6.5vw;
-  }
-  .h-menu {
-    font-family: "Inter";
-    font-size: 1.4vw;
-    color: white;
-    margin: 0;
-    padding: 0;
-    white-space: nowrap;
-  }
-  .menu a {
-    text-decoration: none;
-  }
+  width: 14%;
+  margin-top: 1vw;
+  margin-left: -1vw;
+}
+
+.menu {
+  display: flex;
+  position: absolute;
+  flex-direction: row;
+  gap: 9vw;
+  margin-left: 30vw;
+  margin-top: -6.5vw;
+}
+
+.h-menu {
+  font-family: "Inter";
+  font-size: 1.4vw;
+  color: white;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.menu a {
+  text-decoration: none;
+}
   
 
 .container {

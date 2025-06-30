@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Continuous Star Wars Crawl</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            perspective: 15vw;
+            background-image: url("./images/main-back.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .crawl-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transform: rotateX(45deg);
+            overflow: hidden;
+        }
+        
+        .crawl {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 95vw;
+            margin-left: -47.5vw;
+            text-align: center;
+            transform-origin: 50% 100%;
+        }
+        
+        .image-container {
+            margin: 0.6vw 0;
+            cursor: pointer;
+            position: absolute;
+            width: 100%;
+            height: 20vw;
+            opacity: 0;
+            will-change: transform, opacity;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            pointer-events: auto;
+        }
+        
+        .image-container svg,
+        .image-container img {
+            max-width: 60vw;
+            max-height: 20vw;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            pointer-events: auto; /* Изменено на auto для кликабельности */
+        }
+        
+        @keyframes crawl {
+            0% {
+                transform: translateY(120vh) translateZ(40vw) scale(2.2);
+                opacity: 0;
+            }
+            5% {
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(0) translateZ(0) scale(1);
+            }
+            95% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-120vh) translateZ(-40vw) scale(0.3);
+                opacity: 0;
+            }
+        }
+        
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            z-index: -1;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="crawl-container">
+        <div class="crawl" id="crawl">
+            <!-- Images will be added here -->
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const crawl = document.getElementById('crawl');
+            const svgFiles = [
+                { url: 'images/menu/M1.svg', link: 'https://akkalimullina.github.io/detector_pacanov/' },
+                { url: 'images/menu/M2.svg', link: '/section2' },
+                { url: 'images/menu/M3.svg', link: '/section3' },
+                { url: 'images/menu/M4.svg', link: '/section4' },
+                { url: 'images/menu/M5.svg', link: '/section5' },
+                { url: 'images/menu/M6.svg', link: '/section6' }
+            ];
+            
+            const DURATION = 12;
+            const IMAGE_DURATION = DURATION / svgFiles.length;
+            let currentAnimationId = 0;
+            let isPaused = false;
+            
+            // Функция для загрузки SVG
+            const loadSVG = (url, container, link) => {
+                fetch(url)
+                    .then(response => response.text())
+                    .then(svgText => {
+                        const parser = new DOMParser();
+                        const svgDoc = parser.parseFromString(svgText, "image/svg+xml");
+                        const svgElement = svgDoc.querySelector('svg');
+                        
+                        svgElement.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+                        svgElement.style.width = '100%';
+                        svgElement.style.height = '100%';
+                        svgElement.style.pointerEvents = 'auto'; // Для кликабельности
+                        
+                        container.innerHTML = '';
+                        container.appendChild(svgElement);
+                        
+                        // Обработчик клика на весь контейнер
+                        container.addEventListener('click', function(e) {
+                            if (e.target.tagName === 'svg' || e.target.tagName === 'DIV') {
+                                window.open(link, '_blank');
+                            }
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error loading SVG:', error);
+                        const img = document.createElement('img');
+                        img.src = url;
+                        img.alt = 'SVG image';
+                        img.style.pointerEvents = 'auto'; // Для кликабельности
+                        container.innerHTML = '';
+                        container.appendChild(img);
+                        
+                        container.addEventListener('click', function() {
+                            window.open(link, '_blank');
+                        });
+                    });
+            };
+            
+            const createAnimationCycle = (animationId) => {
+                if (isPaused) return;
+                
+                // Удаляем только старые элементы с предыдущих циклов
+                document.querySelectorAll('.image-container').forEach(el => {
+                    if (parseInt(el.dataset.animationId) < animationId - 1) {
+                        el.remove();
+                    }
+                });
+                
+                // Добавляем новые элементы
+                svgFiles.forEach((svg, i) => {
+                    const container = document.createElement('div');
+                    container.className = 'image-container';
+                    container.dataset.animationId = animationId;
+                    
+                    const delay = i * IMAGE_DURATION;
+                    container.style.animation = `crawl ${DURATION}s linear ${delay}s both`;
+                    
+                    loadSVG(svg.url, container, svg.link);
+                    crawl.appendChild(container);
+                });
+            };
+            
+            // Запускаем первый цикл
+            createAnimationCycle(++currentAnimationId);
+            
+            // Запускаем бесконечную анимацию
+            const animationInterval = setInterval(() => {
+                createAnimationCycle(++currentAnimationId);
+            }, DURATION * 1000);
+            
+            // Пауза при наведении
+            crawl.addEventListener('mouseenter', () => {
+                isPaused = true;
+                document.querySelectorAll('.image-container').forEach(el => {
+                    el.style.animationPlayState = 'paused';
+                });
+            });
+            
+            crawl.addEventListener('mouseleave', () => {
+                isPaused = false;
+                document.querySelectorAll('.image-container').forEach(el => {
+                    el.style.animationPlayState = 'running';
+                });
+                // Запускаем новый цикл при уходе курсора
+                createAnimationCycle(++currentAnimationId);
+            });
+            
+            // Очистка при выходе
+            window.addEventListener('beforeunload', () => {
+                clearInterval(animationInterval);
+            });
+        });
+    </script>
+</body>
+</html>

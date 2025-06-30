@@ -1,7 +1,12 @@
 
-  @font-face {
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 400;
-    src: url('../fonts/Inter.ttf') format('truetype');
-  }
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/Inter.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "VPCH";
+  src: url('fonts/VPCH.woff') format('woff');
+}

@@ -1,0 +1,84 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+}
+
+.menu-main {
+    height: 13.26vw;
+    display: flex;
+    position: relative;
+    background-color: #000000; /* временно для визуализации */
+}
+
+.description {
+    width: 31.8vw;
+    padding: 1vw;
+    box-sizing: border-box;
+}
+
+.white, .blue, .red {
+    width: 22.77vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.5vw;
+}
+
+.white {
+
+    background-image:  url("/images/wh");
+}
+.description{
+    left: 2vw;
+}
+
+.blue {
+    background-color: blue;
+    color: white;
+}
+
+.red {
+    background-color: red;
+    color: white;
+}
+
+.main-image {
+    flex-grow: 1;
+    background-size: cover;
+    background-position: center;
+    margin-top: -0.1vw;
+}
+
+.p1{
+    font-family: "VPCH", sans-serif;
+    color: white;
+}
+
+.tur {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 14.23vw;
+    height: auto;
+    cursor: pointer;
+    background-image: url("/images/tur.svg;");
+    bottom: 2vw;
+    left: 2vw;
+}
+
+.detector {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 4.16vw;
+    height: auto;
+    bottom: 2vw;
+    right: 2vw;
+}
